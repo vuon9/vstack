@@ -1,0 +1,16 @@
+{
+  "name": "vstack-skills",
+  "version": "1.0.0",
+  "description": "VStack's collection of agent skills.",
+  "license": "MIT",
+  "skills": [
+    "./set-it-up",
+    "./skills/bro",
+    "./skills/code-teach",
+    "./skills/how",
+    "./skills/shipping-darwin-apps",
+    "./skills/unslop",
+    "./skills/why",
+    "./vmode"
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "include": ["."],
+  "extraPaths": ["set-it-up/scripts"]
+}

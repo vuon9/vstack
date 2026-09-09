@@ -1,0 +1,181 @@
+{
+  "skills": [
+    {
+      "name": "apple-design",
+      "source": "emilkowalski/skills",
+      "scope": "external"
+    },
+    {
+      "name": "automate-me",
+      "source": "vuon9/vstack",
+      "scope": "mine"
+    },
+    {
+      "name": "brainstorming",
+      "source": "obra/superpowers",
+      "scope": "external",
+      "required": true
+    },
+    {
+      "name": "bro",
+      "source": "vuon9/vstack",
+      "scope": "mine"
+    },
+    {
+      "name": "code-teach",
+      "source": "vuon9/vstack",
+      "scope": "mine"
+    },
+    {
+      "name": "cua-driver",
+      "source": "https://github.com/trycua/cua/tree/main/libs/cua-driver/rust/Skills/cua-driver",
+      "scope": "external"
+    },
+    {
+      "name": "diagnosing-bugs",
+      "source": "mattpocock/skills",
+      "scope": "external"
+    },
+    {
+      "name": "dispatching-parallel-agents",
+      "source": "obra/superpowers",
+      "scope": "external"
+    },
+    {
+      "name": "executing-plans",
+      "source": "obra/superpowers",
+      "scope": "external"
+    },
+    {
+      "name": "find-skills",
+      "source": "vercel-labs/skills",
+      "scope": "external"
+    },
+    {
+      "name": "gh-workflows",
+      "source": "vuon9/gh-workflows",
+      "scope": "mine"
+    },
+    {
+      "name": "grill-me",
+      "source": "mattpocock/skills",
+      "scope": "external"
+    },
+    {
+      "name": "grill-with-docs",
+      "source": "mattpocock/skills",
+      "scope": "external"
+    },
+    {
+      "name": "grilling",
+      "source": "mattpocock/skills",
+      "scope": "external"
+    },
+    {
+      "name": "handoff",
+      "source": "mattpocock/skills",
+      "scope": "external"
+    },
+    {
+      "name": "how",
+      "source": "vuon9/vstack",
+      "scope": "mine"
+    },
+    {
+      "name": "hunk-review",
+      "source": "https://github.com/modem-dev/hunk/tree/main/packages/hunk/skills/hunk-review",
+      "scope": "external",
+      "required": true
+    },
+    {
+      "name": "prototype",
+      "source": "mattpocock/skills",
+      "scope": "external"
+    },
+    {
+      "name": "receiving-code-review",
+      "source": "obra/superpowers",
+      "scope": "external",
+      "required": true
+    },
+    {
+      "name": "requesting-code-review",
+      "source": "obra/superpowers",
+      "scope": "external",
+      "required": true
+    },
+    {
+      "name": "shipping-darwin-apps",
+      "source": "vuon9/vstack",
+      "scope": "mine"
+    },
+    {
+      "name": "subagent-driven-development",
+      "source": "obra/superpowers",
+      "scope": "external"
+    },
+    {
+      "name": "systematic-debugging",
+      "source": "obra/superpowers",
+      "scope": "external"
+    },
+    {
+      "name": "teach",
+      "source": "mattpocock/skills",
+      "scope": "external"
+    },
+    {
+      "name": "test-driven-development",
+      "source": "obra/superpowers",
+      "scope": "external",
+      "required": true
+    },
+    {
+      "name": "to-spec",
+      "source": "mattpocock/skills",
+      "scope": "external"
+    },
+    {
+      "name": "to-tickets",
+      "source": "mattpocock/skills",
+      "scope": "external"
+    },
+    {
+      "name": "unslop",
+      "source": "vuon9/vstack",
+      "scope": "mine",
+      "required": true
+    },
+    {
+      "name": "verification-before-completion",
+      "source": "obra/superpowers",
+      "scope": "external"
+    },
+    {
+      "name": "vmode",
+      "source": "vuon9/vstack",
+      "scope": "mine"
+    },
+    {
+      "name": "wayfinder",
+      "source": "mattpocock/skills",
+      "scope": "external",
+      "required": true
+    },
+    {
+      "name": "why",
+      "source": "vuon9/vstack",
+      "scope": "mine"
+    },
+    {
+      "name": "writing-plans",
+      "source": "obra/superpowers",
+      "scope": "external"
+    },
+    {
+      "name": "writing-skills",
+      "source": "obra/superpowers",
+      "scope": "external"
+    }
+  ]
+}

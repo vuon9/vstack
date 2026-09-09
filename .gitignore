@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Linter and tool caches
+.ruff_cache/
+.pytest_cache/
+
+# Local state / runtime caches
+status-cache.json
+
+# Local pi runtime state
+.pi/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Superpowers local planning docs
+docs/superpowers/
+

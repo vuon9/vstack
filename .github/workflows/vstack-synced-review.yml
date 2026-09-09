@@ -1,0 +1,60 @@
+name: vstack-synced-review
+
+# Verify the skills collection on every pull request, whenever it is opened
+# (opened, reopened, ready_for_review) and on each new push to the branch
+# (synchronize), so a PR is reviewed from the start and again as it changes.
+# Reuses the opencode AI review reusable workflow (muse-spark model, the same
+# setup used in devtoolbox). The reusable posts the report and converges it to a
+# single comment per PR, so re-runs upsert instead of stacking. The verification
+# steps are handed to the agent as a self-contained prompt below.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+# Only the newest run per PR executes; older in-flight runs are cancelled
+# instead of stacking up notifications.
+concurrency:
+  group: vstack-review-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    # Permissions MUST live on the caller job (the reusable job cannot declare
+    # them, or it fails at startup). contents: write lets the agent reconcile
+    # and push from the branch when it can.
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    uses: vuon9/gh-workflows/.github/workflows/ai-code-review.yml@v0.4.1
+    with:
+      mode: pr
+      comment-marker: vstack-synced-review
+      model: opencode/muse-spark-1.2-contributor-free
+      prompt: |
+        READ-ONLY review of this PR's changes to the skills collection.
+        Read files and post a short comment. Do NOT run shell commands.
+        Do NOT modify files, push, or install anything. If you want to show
+        file content, only use your read tool.
+
+        1. Read the skills manifest and the mode skill:
+           `set-it-up/skills.json`, `vmode/SKILL.md`.
+           Repo-local skills live at the repo root (`set-it-up/`, `vmode/`)
+           or under `skills/` (the rest of the collection).
+        2. Make sure the `## Required skills` list in the mode skill and the
+           manifest's `required: true` set match in both directions.
+        3. For each manifest entry, confirm `name` matches its SKILL.md
+           frontmatter (and the folder when the skill lives in this repo),
+           `source` is an owner/repo or a full GitHub tree URL or `local`,
+           `scope` is mine/external, and a mine source points at `vuon9/*`.
+        4. For skills in this repo, confirm SKILL.md frontmatter `name` uses
+           letters/numbers/hyphens, `description` starts with "Use when", and
+           a README.md exists next to SKILL.md.
+
+        Post a SHORT comment (6 to 12 lines): what this PR changed (added,
+        removed, or re-scoped skills), any mismatch found and the exact
+        `set-it-up/scripts/manage.py` command to fix it, and the
+        pass or fail verdict.
+    secrets:
+      OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}

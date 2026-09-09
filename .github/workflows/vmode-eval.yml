@@ -1,0 +1,74 @@
+name: vmode-eval
+
+# Systematic evaluation gates for vmode changes
+# (docs/eval/vmode-eval-systematic-plan.md):
+#   - static-evals: Level 1 (skill/playbook contracts) + Level 2 (W1-W7 trace
+#     invariants), 0% LLM, fast, gating.
+#   - llm-evals: Level 3 semantic probes (muse-spark), advisory semantic check
+#     that only runs after the static gate passes.
+
+on:
+  pull_request:
+    paths:
+      - "vmode/**"
+      - "tests/eval/**"
+      - ".github/workflows/vmode-eval.yml"
+
+concurrency:
+  group: vmode-eval-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static-evals:
+    name: "static-evals (contracts & traces)"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run Level 1 (static contracts)
+        run: python3 -m unittest tests.eval.test_skill_contracts -v
+      - name: Run Level 2 (trace invariants) + probe pre-checks
+        run: |
+          python3 -m unittest tests.eval.test_trace_invariants \
+            tests.eval.probes.test_brief_synthesis -v
+
+  llm-evals:
+    name: "llm-evals (muse-spark semantic probes)"
+    needs: static-evals
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: vuon9/gh-workflows/.github/workflows/ai-code-review.yml@v0.4.1
+    with:
+      mode: pr
+      comment-marker: vmode-llm-eval
+      model: opencode/muse-spark-1.2-contributor-free
+      prompt: |
+        SEMANTIC PROBE EVALUATION: vmode behavioral and contract
+        adherence probe.
+        Evaluate PR changes affecting vmode skills, playbooks, or traces.
+        Do NOT run shell commands or modify files. Use the read tool only.
+
+        Verify these 3 semantic points against the changed files:
+        1. Role Brief Restraint (W1, W6): Are subagent briefs strictly
+           bounded with explicit raw evidence requirements
+           (`git diff --stat`, `grep -n`, test logs)? Probe: does any
+           delegated brief leak cross-workstream context or omit evidence
+           returns? Answer PASS or FAIL.
+        2. Behavior Boundary Fallback (W3): Does feature proof mandate
+           automated assertions at the user surface (CLI stdout/exit code,
+           API contract) rather than internal functions?
+           Answer PASS or FAIL.
+        3. Review Fallback Robustness (W5): Is the local-review fallback
+           gate operational when interactive tools (e.g. hunk-review) are
+           absent? Answer PASS or FAIL.
+
+        Post a compact verdict (under 10 lines):
+        - Status: PASS or FAIL
+        - Semantic Probes: [Brief Restraint: PASS/FAIL,
+          Boundary: PASS/FAIL, Fallback: PASS/FAIL]
+        - Notes: concrete reason if failed, or a 1-sentence confirmation.
+    secrets:
+      OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
