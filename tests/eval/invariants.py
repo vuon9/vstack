@@ -108,9 +108,9 @@ def check_w2_skill_presence_check(trace: TaskTrace) -> list[str]:
     """Before modifying code the parent must touch the skill store or run a check.
 
     We accept evidence in the tool stream: ls/read/stat/find over the skills
-    directory or a set-it-up invocation.
+    directory or a setup-vstack invocation.
     """
-    probe_re = re.compile(r"(skills|set-it-up|SKILL\.md|required)")
+    probe_re = re.compile(r"(skills|setup-vstack|SKILL\.md|required)")
     cmd_seen = False
     for tc in trace.tool_calls:
         cmd = str(tc.input.get("command") or tc.input.get("argsSummary") or "")

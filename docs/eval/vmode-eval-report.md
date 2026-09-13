@@ -28,7 +28,7 @@ Comprehensive record of the vmode evaluation cycle: initial weaknesses, hardenin
 ### W2: Non-Functional Skills Check
 
 - **Defect**: Parent checked names against the session prompt list, meaning broken or missing skills on disk went undetected.
-- **Fix**: Updated `vmode/SKILL.md` to check directory existence and non-empty `SKILL.md` files; triggers `set-it-up --required` on failure.
+- **Fix**: Updated `vmode/SKILL.md` to check directory existence and non-empty `SKILL.md` files; triggers `setup-vstack --required` on failure.
 
 ### W3: Behavior-First Default
 

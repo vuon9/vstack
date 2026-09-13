@@ -18,7 +18,7 @@ jobs:
           python-version: "3.11"
 
       - name: Run Manifest Verification
-        run: python3 set-it-up/scripts/verify.py
+        run: python3 setup-vstack/scripts/verify.py
 
       - name: Run Test Suite
         run: python3 -m unittest discover -s tests -v

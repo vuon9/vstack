@@ -1,4 +1,4 @@
 {
   "include": ["."],
-  "extraPaths": ["set-it-up/scripts"]
+  "extraPaths": ["setup-vstack/scripts"]
 }

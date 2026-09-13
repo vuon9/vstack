@@ -1,4 +1,4 @@
-# Set It Up
+# Setup VStack
 
 Catalog and reinstall Vuong's agent skills (written + preferred from other
 authors) via a single manifest (`skills.json`).

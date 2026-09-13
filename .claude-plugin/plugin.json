@@ -4,7 +4,7 @@
   "description": "VStack's collection of agent skills.",
   "license": "MIT",
   "skills": [
-    "./set-it-up",
+    "./setup-vstack",
     "./skills/bro",
     "./skills/code-teach",
     "./skills/how",
