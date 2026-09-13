@@ -44,7 +44,7 @@ def parse_frontmatter(skill_file: Path) -> dict[str, str]:
 
 def verify_manifest(repo_root: Path) -> list[str]:
     errors = []
-    manifest_path = repo_root / "set-it-up" / "skills.json"
+    manifest_path = repo_root / "setup-vstack" / "skills.json"
     vmode_path = repo_root / "vmode" / "SKILL.md"
 
     if not manifest_path.is_file():

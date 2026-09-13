@@ -6,7 +6,7 @@ import unittest
 class TestInstallDryRun(unittest.TestCase):
     def test_install_dry_run_flag(self):
         res = subprocess.run(
-            [sys.executable, "set-it-up/scripts/install.py", "--required", "--dry-run"],
+            [sys.executable, "setup-vstack/scripts/install.py", "--required", "--dry-run"],
             capture_output=True,
             text=True,
         )

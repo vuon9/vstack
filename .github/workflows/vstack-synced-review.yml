@@ -39,8 +39,8 @@ jobs:
         file content, only use your read tool.
 
         1. Read the skills manifest and the mode skill:
-           `set-it-up/skills.json`, `vmode/SKILL.md`.
-           Repo-local skills live at the repo root (`set-it-up/`, `vmode/`)
+           `setup-vstack/skills.json`, `vmode/SKILL.md`.
+           Repo-local skills live at the repo root (`setup-vstack/`, `vmode/`)
            or under `skills/` (the rest of the collection).
         2. Make sure the `## Required skills` list in the mode skill and the
            manifest's `required: true` set match in both directions.
@@ -54,7 +54,7 @@ jobs:
 
         Post a SHORT comment (6 to 12 lines): what this PR changed (added,
         removed, or re-scoped skills), any mismatch found and the exact
-        `set-it-up/scripts/manage.py` command to fix it, and the
+        `setup-vstack/scripts/manage.py` command to fix it, and the
         pass or fail verdict.
     secrets:
       OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}

@@ -11,7 +11,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 VSTACK_DIR = REPO_ROOT / "vmode"
-SETUP_DIR = REPO_ROOT / "set-it-up"
+SETUP_DIR = REPO_ROOT / "setup-vstack"
 SKILLS_DIR = REPO_ROOT / "skills"
 
 REQUIRED_SKILLS = {

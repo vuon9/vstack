@@ -6,7 +6,7 @@ import unittest
 class TestManageCLI(unittest.TestCase):
     def test_manage_verify_command_runs(self):
         res = subprocess.run(
-            [sys.executable, "set-it-up/scripts/manage.py", "verify"],
+            [sys.executable, "setup-vstack/scripts/manage.py", "verify"],
             capture_output=True,
             text=True,
         )

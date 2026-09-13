@@ -9,7 +9,7 @@ Say what you want in plain words. Prompts come first; the scripts below are
 only the fallback.
 
 - "Work in vmode" -> activates `/vmode`. vmode checks its required skills; if
-  any is missing, it runs `set-it-up --required`.
+  any is missing, it runs `setup-vstack --required`.
 - "How does the auth flow work?" -> investigation playbook with the `research`
   role. Returns a cited answer, not a summary.
 - "Why was this table added?" -> investigation. Ends in a cited answer or a
@@ -24,7 +24,7 @@ only the fallback.
 ## What happens on /vmode
 
 1. vmode checks its required skills. Missing one? It runs
-   `set-it-up --required` first.
+   `setup-vstack --required` first.
 2. It reads the Principles in full, then the matched playbook (`feature`, `bug-fix`, `prototype`, `investigation`, or `babysit`).
 3. It copies the playbook steps into the todolist verbatim. A skipped step
    stays with `skip: <reason>`.
@@ -65,8 +65,8 @@ up front and cited). If you change such a rule, edit both places.
 
 Only needed when you want the underlying commands directly.
 
-- `python3 set-it-up/scripts/install.py --all` installs everything.
-- `python3 set-it-up/scripts/install.py --required` installs just what
+- `python3 setup-vstack/scripts/install.py --all` installs everything.
+- `python3 setup-vstack/scripts/install.py --required` installs just what
   vmode needs.
 - `npx skills update -g` refreshes installed skills to latest.
 

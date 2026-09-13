@@ -109,7 +109,7 @@ Transforms the seven evaluation weaknesses into programmatic test functions eval
 
 #### W2 & W7: Functional Skill Manifest Validation
 - **Invariant:** Before any task modifications, the parent trace must show a check on skill existence via filesystem tools (`stat`, `access`, `read`, `glob`) or a package manifest lookup.
-- **Assertion:** If a required skill is simulated as missing, verify that `set-it-up --required` is triggered before task execution.
+- **Assertion:** If a required skill is simulated as missing, verify that `setup-vstack --required` is triggered before task execution.
 
 #### W3: Outer Boundary Proof
 - **Invariant:** For feature tasks, the resulting patch diff (`trace.patch_diff`) must touch an executable acceptance test, CLI runner, or HTTP client boundary, rather than only internal unit functions.

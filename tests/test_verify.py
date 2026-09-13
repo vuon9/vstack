@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "set-it-up" / "scripts"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "setup-vstack" / "scripts"))
 
 from verify import verify_manifest
 
@@ -13,7 +13,7 @@ class TestVerifyManifest(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.root = Path(self.tmp.name)
-        (self.root / "set-it-up").mkdir(parents=True)
+        (self.root / "setup-vstack").mkdir(parents=True)
         (self.root / "vmode").mkdir(parents=True)
 
     def tearDown(self):
@@ -30,7 +30,7 @@ class TestVerifyManifest(unittest.TestCase):
                 }
             ]
         }
-        with open(self.root / "set-it-up" / "skills.json", "w") as fh:
+        with open(self.root / "setup-vstack" / "skills.json", "w") as fh:
             json.dump(favorites, fh)
 
         vmode_content = "---\nname: vmode\n---\n## Required skills\n\n- `beta`\n"
