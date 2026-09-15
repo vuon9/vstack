@@ -5,11 +5,13 @@
   "license": "MIT",
   "skills": [
     "./setup-vstack",
+    "./skills/automate-me",
     "./skills/bro",
     "./skills/code-teach",
     "./skills/how",
     "./skills/shipping-darwin-apps",
     "./skills/unslop",
+    "./skills/use-siyuan",
     "./skills/why",
     "./vmode"
   ]
