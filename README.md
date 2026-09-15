@@ -52,6 +52,7 @@ CI runs the same verification plus the unit test suite on every push and PR
 - [setup-vstack](./setup-vstack/SKILL.md). Install and refresh this collection from `skills.json`
 - [automate-me](./skills/automate-me/SKILL.md). Capture personal working conventions and preferences into an agent `-mode` skill
 - [shipping-darwin-apps](./skills/shipping-darwin-apps/SKILL.md). Build and ship iOS/macOS apps (signing, notarization, TestFlight, DMG)
+- [use-siyuan](./skills/use-siyuan/SKILL.md). Drive SiYuan notes from the `siyuan` CLI (notebooks, documents, blocks, search, export, sync)
 - [gh-workflows](https://github.com/vuon9/gh-workflows). Reusable GitHub Actions workflows
 
 ### Copied from cursor/plugins, adjusted for editor-agnostic use
