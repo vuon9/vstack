@@ -147,6 +147,11 @@
       "required": true
     },
     {
+      "name": "use-siyuan",
+      "source": "vuon9/vstack",
+      "scope": "mine"
+    },
+    {
       "name": "verification-before-completion",
       "source": "obra/superpowers",
       "scope": "external"
